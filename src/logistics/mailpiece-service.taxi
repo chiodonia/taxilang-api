@@ -1,0 +1,8 @@
+namespace ch.post.logistics 
+
+service MailpieceService {
+   @Topic(name="logistics.Mailpiece-event")
+   stream mailpieceEvents: Stream<MailpieceEvents>
+}
+
+

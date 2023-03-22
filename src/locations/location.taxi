@@ -1,0 +1,18 @@
+namespace ch.post.locations 
+
+[[ The location identifier. ]]
+type LocationId inherits String
+type Street inherits String
+type StreetNr inherits String
+type StreetFullName inherits String by concat(Street, ' ', StreetNr)
+type ZIP inherits String
+type City inherits String
+
+model Location {
+   @Id
+   id : LocationId
+   street : StreetFullName?
+   zip : ZIP
+   city : City?
+}
+

@@ -1,0 +1,8 @@
+namespace ch.post.locations 
+
+service LocationService {
+   @Topic(name="locations.Location-state")
+   stream locations: Stream<Location>
+}
+
+

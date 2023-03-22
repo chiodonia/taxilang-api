@@ -1,0 +1,24 @@
+import ch.post.locations.Location
+namespace ch.post.logistics 
+
+[[ The mailpiece identifier. ]]
+type MailpieceId inherits EventId
+type alias ShipmentId as MailpieceId
+
+model MailpieceEvents {
+   @Id
+   id : MailpieceId
+   timestamp : EventId
+   coded : MailpieceCodedEvent?
+   delivered : MailpieceDeliveredEvent?
+}
+
+model MailpieceCodedEvent {
+   locations : Array<LocationId>
+}
+
+model MailpieceDeliveredEvent {
+   location : LocationId
+}
+
+
