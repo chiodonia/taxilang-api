@@ -1,14 +1,16 @@
 import ch.post.locations.Location
+
 namespace ch.post.logistics 
 
 [[ The mailpiece identifier. ]]
-type MailpieceId inherits EventId
+type MailpieceId inherits String
+type EventTimestamp inherits DateTime
 type alias ShipmentId as MailpieceId
 
 model MailpieceEvents {
    @Id
    id : MailpieceId
-   timestamp : EventId
+   timestamp : EventTimestamp
    coded : MailpieceCodedEvent?
    delivered : MailpieceDeliveredEvent?
 }

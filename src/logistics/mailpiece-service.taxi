@@ -1,7 +1,11 @@
+import io.vyne.kafka.KafkaService
+import io.vyne.kafka.KafkaOperation
+
 namespace ch.post.logistics 
 
+@KafkaService( connectionName = "gandalf-prod" )
 service MailpieceService {
-   @Topic(name="logistics.Mailpiece-event")
+   @KafkaOperation(topic="logistics.Mailpiece-event", offset = "earliest")
    stream mailpieceEvents: Stream<MailpieceEvents>
 }
 

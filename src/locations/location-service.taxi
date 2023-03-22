@@ -1,7 +1,11 @@
+import io.vyne.kafka.KafkaService
+import io.vyne.kafka.KafkaOperation
+
 namespace ch.post.locations 
 
+@KafkaService( connectionName = "gandalf-prod" )
 service LocationService {
-   @Topic(name="locations.Location-state")
+   @KafkaOperation(topic="locations.Location-state", offset = "earliest")
    stream locations: Stream<Location>
 }
 
